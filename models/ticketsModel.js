@@ -7,5 +7,8 @@ module.exports = {
   createTicket: async (ticket) => {
     const [id] = await db('tickets').insert(ticket);
     return db('tickets').where({ id }).first();
+  },
+  updateTicket: (id, updatedTicket) => {
+    return db('tickets').where({ id }).update(updatedTicket);
   }
 }

@@ -14,13 +14,27 @@ router.get('/tickets', async (req, res) => {
 
 router.post('/tickets', async (req, res) => {
   const { title, description, category, user_id } = req.body;
-  console.log(req.body);
+
   if(title || description || category || user_id){
     const ticket = await Tickets.createTicket(req.body);
     res.status(201).json(ticket);
   } else {
     res.status(422).json({message: 'Missing Fields Required'});
   }
+});
+
+router.put('/tickets/:id', async (req, res) => {
+  const { id } = req.params;
+  const updatedTicket = req.body;
+
+  Tickets.updateTicket(id, updatedTicket)
+         .then(ticket => {
+           console.log(ticket);
+           res.status(200).json(ticket);
+         })
+         .catch(err => {
+           res.statsu(500).json(err);
+         });
 });
 
 module.exports = router;
