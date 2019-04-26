@@ -36,7 +36,7 @@ router.put('/tickets/:id', (req, res) => {
          });
 });
 
-router.delete('/tickets/:id', async (req, res) => {
+router.delete('/tickets/:id', (req, res) => {
   const { id } = req.params;
 
   Tickets.deleteTicket(id)
