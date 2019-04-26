@@ -23,17 +23,28 @@ router.post('/tickets', async (req, res) => {
   }
 });
 
-router.put('/tickets/:id', async (req, res) => {
+router.put('/tickets/:id', (req, res) => {
   const { id } = req.params;
   const updatedTicket = req.body;
 
   Tickets.updateTicket(id, updatedTicket)
          .then(ticket => {
-           console.log(ticket);
            res.status(200).json(ticket);
          })
          .catch(err => {
-           res.statsu(500).json(err);
+           res.status(500).json(err);
+         });
+});
+
+router.delete('/tickets/:id', async (req, res) => {
+  const { id } = req.params;
+
+  Tickets.deleteTicket(id)
+         .then(count => {
+           res.status(200).json(count);
+         })
+         .catch(err => {
+           res.status(500).json(err);
          });
 });
 
