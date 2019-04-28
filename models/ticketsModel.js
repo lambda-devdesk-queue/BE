@@ -23,8 +23,9 @@ module.exports = {
     return db('tickets').where({ id }).first();
   },
 
-  updateTicket: (id, updatedTicket) => {
-    return db('tickets').where({ id }).update(updatedTicket);
+  updateTicket: async (id, updatedTicket) => {
+    const updated = await db('tickets').where({ id }).update(updatedTicket);
+    return db('tickets').where({ id }).first();
   },
 
   deleteTicket: (id) => {
