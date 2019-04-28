@@ -10,7 +10,7 @@ module.exports = {
     return db('tickets').where({ id }).first();
   },
 
-  getTicketsAssignedToAdmin: (id) => {
+  getTicketsAssignedToAdmin: (assigned_user) => {
     return db('tickets').where({ assigned_user });
   },
 
