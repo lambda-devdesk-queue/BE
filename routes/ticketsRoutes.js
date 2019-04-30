@@ -1,8 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
+const jwt = require('jsonwebtoken');
+
+const jwtKey = process.env.JWT_SECRET || `add a .env file to the root of the project with a JWT_SECRET variable`;
+
 const Tickets = require('../models/ticketsModel');
 const Users = require('../models/usersModel');
+const { authenticate, adminAuth } = require('../middleware/middleware');
 
 router.use(express.json());
 
@@ -26,7 +31,7 @@ router.get('/tickets/:id', async (req, res) => {
 });
 
 //Get tickets assigned to x admin
-router.get('/tickets/admin/:id', async (req, res) => {
+router.get('/tickets/admin/:id', adminAuth, async (req, res) => {
   const { id } = req.params;
   const user = await Users.getUserByID(id);
   console.log(user);
