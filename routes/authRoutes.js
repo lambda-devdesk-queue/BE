@@ -8,10 +8,11 @@ const router = express.Router();
 
 const Tickets = require('../models/ticketsModel');
 const Users = require('../models/usersModel');
+const { authenticate } = require('../middleware/middleware');
 
 router.use(express.json());
 
-router.get('/users', async (req, res) => {
+router.get('/users', authenticate, async (req, res) => {
   const users = await Users.getAllUsers();
 
   if(users){
