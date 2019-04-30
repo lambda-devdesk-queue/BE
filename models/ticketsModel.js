@@ -28,8 +28,8 @@ module.exports = {
     return db('tickets').where({ id }).first();
   },
 
-  deleteTicket: (id) => {
-    db('tickets').where({ id }).del();
+  deleteTicket: async (id) => {
+    await db('tickets').where({ id }).del();
     return db('tickets');
   }
 }
