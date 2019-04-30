@@ -22,12 +22,10 @@ authenticate = (req, res, next) => {
 
 adminAuth = (req, res, next) => {
   const token = req.get('Authorization');
-  console.log(token);
   jwt.verify(token, jwtKey, (err, success) => {
       if(err){
           return res.status(401).json(err)
       } else {
-          console.log(success);
           if(success.role === "Admin"){
               next();
           } else {

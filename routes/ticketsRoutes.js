@@ -12,14 +12,14 @@ const { authenticate, adminAuth } = require('../middleware/middleware');
 router.use(express.json());
 
 //Get all tickets in queue
-router.get('/tickets', async (req, res) => {
+router.get('/tickets', authenticate, async (req, res) => {
   const tickets = await Tickets.getAllTickets();
 
   res.status(200).json(tickets);
 });
 
 //Get ticket by id
-router.get('/tickets/:id', async (req, res) => {
+router.get('/tickets/:id', authenticate, async (req, res) => {
   const { id } = req.params;
   const ticket = await Tickets.getTicketByID(id);
 
@@ -49,7 +49,7 @@ router.get('/tickets/admin/:id', adminAuth, async (req, res) => {
 });
 
 //Get tickets created by x student
-router.get('/tickets/student/:id', async (req, res) => {
+router.get('/tickets/student/:id', authenticate, async (req, res) => {
   const { id } = req.params;
   const user = await Users.getUserByID(id);
   console.log(user);
@@ -68,7 +68,7 @@ router.get('/tickets/student/:id', async (req, res) => {
 });
 
 //Create new ticket
-router.post('/tickets', async (req, res) => {
+router.post('/tickets', authenticate, async (req, res) => {
   const { title, description, category, user_id } = req.body;
 
   if(title || description || category || user_id){
@@ -80,7 +80,7 @@ router.post('/tickets', async (req, res) => {
 });
 
 //Update existing ticket by id
-router.put('/tickets/:id', async (req, res) => {
+router.put('/tickets/:id', authenticate, async (req, res) => {
   const { id } = req.params;
   const updatedTicket = req.body;
 
@@ -101,7 +101,7 @@ router.put('/tickets/:id', async (req, res) => {
 });
 
 //Delete ticket by id
-router.delete('/tickets/:id', async (req, res) => {
+router.delete('/tickets/:id', authenticate, async (req, res) => {
   const { id } = req.params;
   const ticket = await Tickets.getTicketByID(id);
 
