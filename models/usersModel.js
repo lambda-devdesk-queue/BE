@@ -11,7 +11,7 @@ module.exports = {
   },
 
   register: async (user) => {
-    const [id] = await db('users').insert(ticket);
+    const [id] = await db('users').insert(user);
     return db('users').where({ id }).first();
   },
 
