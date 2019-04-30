@@ -29,6 +29,7 @@ module.exports = {
   },
 
   deleteTicket: (id) => {
-    return db('tickets').where({ id }).del();
+    db('tickets').where({ id }).del();
+    return db('tickets');
   }
 }
