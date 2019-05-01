@@ -36,7 +36,7 @@ router.get('/tickets/admin/:id', adminAuth, async (req, res) => {
   const user = await Users.getUserByID(id);
   console.log(user);
 
-  if(user && user.role === 'Admin'){
+  if(user && user.isAdmin){
     const tickets = await Tickets.getTicketsAssignedToAdmin(id);
     if(tickets){
       res.status(200).json(tickets);

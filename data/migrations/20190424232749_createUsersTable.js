@@ -4,7 +4,9 @@ exports.up = function(knex, Promise) {
       table.string('username', 100).notNullable().unique();
       table.string('password').notNullable();
       table.string('email').notNullable().unique();
-      table.string('role').notNullable();
+      table.boolean('isAdmin').notNullable().defaultTo(false);
+
+      //table.string('role').notNullable();
       table.string('cohort');
       table.string('created_at').notNullable().defaultTo(knex.fn.now());
   })

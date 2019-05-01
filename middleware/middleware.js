@@ -26,7 +26,8 @@ adminAuth = (req, res, next) => {
       if(err){
           return res.status(401).json(err)
       } else {
-          if(success.role === "Admin"){
+          console.log('Admin Auth', success)
+          if(success.admin === 1){
               next();
           } else {
               res.status(401).json({

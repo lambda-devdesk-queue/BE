@@ -61,8 +61,8 @@ router.post('/login', async (req, res) => {
 generateToken = (user) => {
     const payload = {
         username: user.username,
-        role: user.role,
-        user_id: user.id,
+        admin: user.isAdmin,
+        user_id: user.id
     }
 
     const options = {
