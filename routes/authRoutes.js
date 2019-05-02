@@ -23,6 +23,7 @@ router.get('/users', authenticate, async (req, res) => {
 });
 
 router.get('/users/:id', authenticate, async (req, res) => {
+  const { id } = req.params;
   const user = await Users.getUserByID(id);
 
   if(user){
