@@ -22,6 +22,16 @@ router.get('/users', authenticate, async (req, res) => {
   }
 });
 
+router.get('/users/:id', authenticate, async (req, res) => {
+  const user = await Users.getUserByID(id);
+
+  if(user){
+    res.status(200).json(user);
+  } else {
+    res.status(404).json({msg: 'No user found'});
+  }
+});
+
 router.post('/register', async (req, res) => {
   const newUser = req.body;
 
