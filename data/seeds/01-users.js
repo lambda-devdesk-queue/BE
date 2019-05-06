@@ -37,6 +37,17 @@ exports.seed = function(knex, Promise) {
             isAdmin: 1,
             cohort: "WEBPT3",
             created_at: "2019-05-03 04:55:13"
+        },
+        {
+            id: 4,
+            firstName: "Peter",
+            lastName: "Gibons",
+            username: "pgibbons",
+            password: "$2a$12$t7GNRk85k8nrZLNDGkaEk.wrXH8iZshqkPWJoh8mSn9OPH9DCKYC.",
+            email: "pgibbons@email.com",
+            isAdmin: 0,
+            cohort: "WEBPT3",
+            created_at: "2019-05-05 05:12:31"
         }
       ]);
     });
