@@ -119,4 +119,11 @@ router.delete('/tickets/:id', authenticate, async (req, res) => {
 
 });
 
+//Slackbot Endpoints Test
+router.get('/slackbottickets', async (req, res) => {
+  const tickets = await Tickets.getAllTickets();
+
+  res.status(200).json(tickets);
+});
+
 module.exports = router;
