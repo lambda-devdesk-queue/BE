@@ -61,17 +61,17 @@
 
 #### Users
 
-`getAllTickets()` -> Returns all tickets in database
-`getTicketByID(id)` -> Returns ticket by id
-`getTicketsAssignedToAdmin(assigned_user)` -> Returns tickets assigned to admin, by admin id
-`getTicketsCreatedByUser(user_id)` -> Returns tickets created by user, by user id
-`createTicket(ticket)` -> Inserts new ticket into database
-`updateTicket(id, updatedTicket)` -> Updates existing ticket
-`deleteTicket(id)` -> Deletes ticket by id
+`getAllTickets()` -> Returns all tickets in database <br>
+`getTicketByID(id)` -> Returns ticket by id <br>
+`getTicketsAssignedToAdmin(assigned_user)` -> Returns tickets assigned to admin, by admin id <br>
+`getTicketsCreatedByUser(user_id)` -> Returns tickets created by user, by user id <br>
+`createTicket(ticket)` -> Inserts new ticket into database <br>
+`updateTicket(id, updatedTicket)` -> Updates existing ticket <br>
+`deleteTicket(id)` -> Deletes ticket by id <br>
 
 #### Tickets
 
-`getUserByID(id)` -> Returns user by id
-`getAllUsers()` -> Returns all users in database
-`register(user)` -> Registers new user
-`login(username)` -> Logs in existing user
+`getUserByID(id)` -> Returns user by id <br>
+`getAllUsers()` -> Returns all users in database <br>
+`register(user)` -> Registers new user <br>
+`login(username)` -> Logs in existing user <br>
